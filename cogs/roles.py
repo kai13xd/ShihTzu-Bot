@@ -34,7 +34,7 @@ class Roles(commands.Cog):
 	async def letmein(self,ctx):
 		if await self.awaiting_user_response(ctx):
 			return
-		role = self.get(ctx.guild.roles, name='Insider')
+		role = self.bot.get(ctx.guild.roles, name='Insider')
 		if role in ctx.author.roles:
 			msg = await ctx.send(f'{ctx.message.author.mention}.. You already have the {role.name} role. Would you like me to remove it?')
 			await msg.add_reaction('✅')
@@ -43,7 +43,7 @@ class Roles(commands.Cog):
 			self.open_responses.append(response_msg)
 		else:
 			await ctx.author.add_roles(role)
-			channel = self.get(ctx.guild.channels, name='updates')
+			channel = self.bot.get(ctx.guild.channels, name='updates')
 			await ctx.channel.send(f'I just got you signed up to recieve notifications from {channel.mention}! Thank you for your interest in this hack!')
 
 
@@ -51,7 +51,7 @@ class Roles(commands.Cog):
 	async def artislove(self,ctx):
 		if await self.awaiting_user_response(ctx):
 			return
-		role = self.get(ctx.guild.roles, name='Art')
+		role = self.bot.get(ctx.guild.roles, name='Art')
 		if role in ctx.author.roles:
 			msg = await ctx.send(f'{ctx.message.author.mention}.. You already have the {role.name} role. Would you like me to remove it?')
 			await msg.add_reaction('✅')
@@ -60,7 +60,7 @@ class Roles(commands.Cog):
 			self.open_responses.append(response_msg)
 		else:
 			await ctx.author.add_roles(role)
-			channel = self.get(ctx.guild.channels, name='art-sharing')
+			channel = self.bot.get(ctx.guild.channels, name='art-sharing')
 			await ctx.channel.send(f'Oooo! You like to draw {ctx.message.author.mention}? You can now upload your work in {channel.mention}!')
 
 def setup(bot):
