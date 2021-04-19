@@ -45,7 +45,7 @@ class Roles(commands.Cog):
                 await msg.add_reaction("✅")
                 await self.bot.wait_for("raw_reaction_add", timeout=30.0, check=react_cond)
             except asyncio.TimeoutError:
-                msg.delete()
+                await msg.delete()
                 await ctx.send("Cool! So it seems you'll keep the role after all.")
             except discord.Forbidden:
                 await ctx.msg('I am supposed to have reaction permissions to remove commands. Blame Kai for screwing this up.')
@@ -69,7 +69,7 @@ class Roles(commands.Cog):
                 await msg.add_reaction("✅")
                 await self.bot.wait_for("raw_reaction_add", timeout=30.0, check=react_cond)
             except asyncio.TimeoutError:
-                msg.delete()
+                await msg.delete()
                 await ctx.send("Cool! So it seems you'll keep the role after all.")
             except discord.Forbidden:
                 await ctx.msg('I am supposed to have reaction permissions to remove commands. Blame Kai for screwing this up.')
