@@ -12,7 +12,6 @@ class Feedback(commands.Cog):
 		 
 	@commands.Cog.listener()
 	async def on_message(self,message):
-		await self.bot.process_commands(message)
 		if message.guild is None and message.author != self.bot.user:
 			if re.sub('[^A-Za-z0-9]+', '', message.content) == 'ihaveanidea':
 				await message.add_reaction('👍')

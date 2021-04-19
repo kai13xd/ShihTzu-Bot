@@ -1,8 +1,7 @@
 import discord
-from discord import channel, mentions, message
 from discord.ext import commands, tasks
 from discord.flags import Intents
-from discord.utils import get
+
 import json
 import random
 from datetime import datetime
